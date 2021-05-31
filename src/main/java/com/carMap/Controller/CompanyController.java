@@ -20,6 +20,8 @@ import com.carMap.Repository.modelRepo;
 @RestController
 public class CompanyController 
 {
+	
+	//Logger function
 
 	public final Logger log=LoggerFactory.getLogger(CompanyController.class);
 	
