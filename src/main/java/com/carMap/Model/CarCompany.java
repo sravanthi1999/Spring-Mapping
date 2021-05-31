@@ -30,16 +30,17 @@ public class CarCompany
 	   
 	   @Column(name = "cte")
 	   private String CTE;
+	   	
 	   
 //	   @OneToMany(targetEntity = CarModel.class,cascade = CascadeType.ALL)
 //	   @JoinColumn(name ="modelid",referencedColumnName = "companyId" )
 	   
 	   @OneToMany(mappedBy = "carCompany",  cascade= CascadeType.ALL)
 	   private List<CarModel> models;
-//	   
+	   
 	   @OneToOne(cascade = CascadeType.ALL)
 	   private CompanyCEO ceo;
-//	   
+	   
 	   @PrePersist
 		public void addChild()
 	    {

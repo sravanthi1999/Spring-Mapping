@@ -1,18 +1,19 @@
 package com.carMap.Repository;
 
-import java.util.List;
-
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import com.carMap.Model.CarCompany;
 
 @Repository
-public interface CTemplate<T> 
+public interface CTemplate 
 {
 
-	//CarCompany saveCompany(CarCompany carCompany);
-	CarCompany getCompany(int carId);
-	//CarCompany updateCompany(CarCompany carCompany);
-	List<CarCompany> getCompanies();
+	
+	@Query(value="select c.companyId, c.companyName from CarCompany c where c.carId between :carId1 and :carId2 ",nativeQuery = true)
+	CarCompany getCompanys(@Param("carId1") int carId1,@Param("carId2") int carId2);
+	
+	//List<CarCompany> getCompanies();
 	
 }
