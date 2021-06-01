@@ -14,8 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.carMap.Model.CarCompany;
 import com.carMap.Repository.companyRepo;
-import com.carMap.Repository.jdbctemp;
-import com.carMap.Repository.modelRepo;
 
 @RestController
 public class CompanyController 
@@ -81,14 +79,14 @@ public class CompanyController
 	}
 	
 	
-	@Autowired
-	modelRepo mRepo;
-	
-	@GetMapping("/joinmodelcompany")
-	public List<Object[]> modelcompany()
-	{
-		return mRepo.modelCompany();
-	}
+//	@Autowired
+//	modelRepo mRepo;
+//	
+//	@GetMapping("/joinmodelcompany")
+//	public List<Object[]> modelcompany()
+//	{
+//		return mRepo.modelCompany();
+//	}
 //	
 //	@Autowired
 //	jdbctemp tmp;
