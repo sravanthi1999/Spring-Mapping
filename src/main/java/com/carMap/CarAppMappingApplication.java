@@ -15,10 +15,13 @@ public class CarAppMappingApplication
 	private static Logger logger=Logger.getLogger(CarAppMappingApplication.class);
 	public static void main(String[] args) 
 	{
+		//create layout
 		Layout layout=new SimpleLayout();
+		//create appender+ link layout
 		Appender appender=new ConsoleAppender(layout);
 		
 		SpringApplication.run(CarAppMappingApplication.class, args);
+		//link appender with logger
 		logger.addAppender(appender);
 		
 	}
