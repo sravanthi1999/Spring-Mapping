@@ -1,5 +1,10 @@
 package com.carMap;
 
+import org.apache.log4j.Appender;
+import org.apache.log4j.ConsoleAppender;
+import org.apache.log4j.Layout;
+import org.apache.log4j.Logger;
+import org.apache.log4j.SimpleLayout;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -7,14 +12,15 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class CarAppMappingApplication 
 {
 
-	//generetae loggers in this package
-	//private static final Logger LOGGER=LoggerFactory.getLogger(CarAppMappingApplication.class);
+	private static Logger logger=Logger.getLogger(CarAppMappingApplication.class);
 	public static void main(String[] args) 
 	{
-		 
-		SpringApplication.run(CarAppMappingApplication.class, args);
+		Layout layout=new SimpleLayout();
+		Appender appender=new ConsoleAppender(layout);
 		
-		//LOGGER.info("Simple log statement with inputs {}, {} and {}", 1,2,3);
+		SpringApplication.run(CarAppMappingApplication.class, args);
+		logger.addAppender(appender);
+		
 	}
 
 }

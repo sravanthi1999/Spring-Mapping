@@ -45,7 +45,8 @@ public class CarModel
     @JoinTable(name="ModelFuels",joinColumns= @JoinColumn(name="modelId") ,inverseJoinColumns= @JoinColumn(name="fuelId"))                   
     private List<CarFuel> carFuels;
 
-	public int getModelId() {
+	public int getModelId() 
+	{
 		return modelId;
 	}
 

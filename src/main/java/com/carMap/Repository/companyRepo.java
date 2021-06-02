@@ -20,10 +20,10 @@ public interface companyRepo extends JpaRepository<CarCompany, Integer>,companyR
 	List<CarCompany> findByCompanyNameOrHeadQuaters(String CompanyName, String headQuaters);
 	
 	@Query("select companyId,companyName, LENGTH(companyName) as companylen from CarCompany where companyName like ?1%")
-	  List<Object[]> findByAsArrayAndSort(String companyName, JpaSort sort);
+	List<Object[]> findByAsArrayAndSort(String companyName, JpaSort sort);
 	
 	  
-	  @Query(value = "select  carcompany.company_name,companyceo.ceoname from carcompany INNER JOIN  companyceo  on carcompany.ceo_ceoid = companyceo.ceoid",nativeQuery = true)
-	  public List<Object[]> findWithCeo();
+	@Query(value = "select  carcompany.company_name,companyceo.ceoname from carcompany INNER JOIN  companyceo  on carcompany.ceo_ceoid = companyceo.ceoid",nativeQuery = true)
+	public List<Object[]> findWithCeo();
 
 }

@@ -13,7 +13,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.carMap.Model.CarCompany;
+import com.carMap.Model.CarFuel;
+import com.carMap.Model.CarModel;
 import com.carMap.Repository.companyRepo;
+import com.carMap.Repository.fuelRepo;
+import com.carMap.Repository.modelRepo;
 
 @RestController
 public class CompanyController 
@@ -26,6 +30,11 @@ public class CompanyController
 	@Autowired
 	companyRepo crepo;
 	
+	@Autowired
+	modelRepo mrepo;
+	
+	@Autowired
+	fuelRepo frepo;
 	
 	//JPA QUERIES
 	
@@ -45,13 +54,23 @@ public class CompanyController
 		return crepo.save(carcompany);
 	}
 	
+	//
+	@GetMapping("/model-fules")
+	public List<CarModel> getAll()
+	{
+		return mrepo.findAll();
+	}
 	
-	
+	@GetMapping("/fules-models")
+	public List<CarFuel> getAllF()
+	{
+		return frepo.findAll();
+	}
 	
 	//CUSTOM QUERIES
 	
 	//GETTING COMPANY NAME AND ID BETWEEN RANGE OF ID'S
-	@GetMapping("/getcompanies/{id1}/{id2}")
+	@GetMapping("/getcompanies/{id1},{id2}")
 	public List<Object[]> getCompanies(@PathVariable(value = "id1") int id1, @PathVariable(value = "id2") int id2)
 	{
 		return crepo.getCompanys(id1,id2);	
