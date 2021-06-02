@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 import com.carMap.Model.CarCompany;
 
 @Repository
-public interface companyRepo extends JpaRepository<CarCompany, Integer>
+public interface companyRepo extends JpaRepository<CarCompany, Integer>,companyRepoCustom
 {
 	
 	@Query("select companyId, companyName from CarCompany  where companyId between ?1 and ?2 ")

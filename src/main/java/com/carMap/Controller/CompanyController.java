@@ -78,6 +78,11 @@ public class CompanyController
 		return crepo.findWithCeo();
 	}
 	
+	@GetMapping("/getIds/{id}")
+	public List<CarCompany> lessThandId(@PathVariable int id)
+	{
+		return crepo.getIdLessThan(id);
+	}
 	
 //	@Autowired
 //	modelRepo mRepo;
