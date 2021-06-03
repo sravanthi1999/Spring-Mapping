@@ -2,8 +2,7 @@ package com.carMap.Controller;
 
 import java.util.List;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.domain.JpaSort;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,8 +23,8 @@ public class CompanyController
 {
 	
 	//Logger function
-
-	public final Logger log=LoggerFactory.getLogger(CompanyController.class);
+	
+	private static Logger log=Logger.getLogger(CompanyController.class);
 	
 	@Autowired
 	companyRepo crepo;
@@ -35,6 +34,7 @@ public class CompanyController
 	
 	@Autowired
 	fuelRepo frepo;
+	
 	
 	//JPA QUERIES
 	
@@ -50,7 +50,7 @@ public class CompanyController
 	@PostMapping("/putcompany")
 	public CarCompany postCompany(@RequestBody CarCompany carcompany)
 	{
-		log.trace("saving particular company details");
+		log.debug("saving particular company details");
 		return crepo.save(carcompany);
 	}
 	
@@ -73,6 +73,7 @@ public class CompanyController
 	@GetMapping("/getcompanies/{id1},{id2}")
 	public List<Object[]> getCompanies(@PathVariable(value = "id1") int id1, @PathVariable(value = "id2") int id2)
 	{
+		log.debug("getting values between range of id's");
 		return crepo.getCompanys(id1,id2);	
 	}
 	
@@ -81,6 +82,7 @@ public class CompanyController
 	@GetMapping("/findCompany/{CompanyName}/{headQuaters}")
 	public List<CarCompany> getCompanyHeadquaters(@PathVariable(value = "CompanyName") String CompanyName, @PathVariable(value = "headQuaters") String headQuaters)
 	{
+		log.debug("getting company details based on company name and headquaters");
 		return crepo.findByCompanyNameOrHeadQuaters(CompanyName,headQuaters);
 		
 	}
@@ -88,6 +90,7 @@ public class CompanyController
 	@GetMapping("/sortCompany/{companyName}")
 	public List<Object[]> sortByName(@PathVariable(value = "companyName")String companyName)
 	{
+		log.debug("getting company details in sorted fashion");
 		return crepo.findByAsArrayAndSort(companyName,JpaSort.unsafe("LENGTH(companyName)"));
 	}
 	
