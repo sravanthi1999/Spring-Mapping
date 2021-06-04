@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import com.carMap.Model.CarFuel;
 
 @Repository
-public interface fuelRepo extends JpaRepository<CarFuel, Integer> 
+public interface IfuelRepo extends JpaRepository<CarFuel, Integer> 
 {
 
 }

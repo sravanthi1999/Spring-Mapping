@@ -1,8 +1,12 @@
-2021-06-03 13:15:17 DEBUG com.carMap.Controller.CompanyController:85 - getting company details based on company name and headquaters
+2021-06-03 20:52:01 INFO com.carMap.Controller.CompanyController:43 - finding all the companies details
 
-2021-06-03 13:15:41 DEBUG com.carMap.Controller.CompanyController:76 - getting values between range of id's
+2021-06-03 20:53:07 INFO com.carMap.Controller.CompanyController:43 - finding all the companies details
 
-2021-06-03 13:15:44 INFO com.carMap.Controller.CompanyController:45 - finding all the companies details
+2021-06-03 20:54:31 INFO com.carMap.Controller.CompanyController:45 - finding all the companies details
 
-2021-06-03 13:15:51 DEBUG com.carMap.Controller.CompanyController:93 - getting company details in sorted fashion
+2021-06-03 20:54:31 INFO com.carMap.Controller.CompanyController:49 - finding all the companies details
+
+2021-06-03 20:56:27 INFO com.carMap.Controller.CompanyController:40 - finding all the companies details
+
+2021-06-03 20:56:27 INFO com.carMap.Controller.CompanyController:49 - finding all the companies details
 

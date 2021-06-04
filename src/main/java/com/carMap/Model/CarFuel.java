@@ -14,7 +14,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "fuel")
-
 public class CarFuel 
 {
      @Id
@@ -25,11 +24,16 @@ public class CarFuel
      private String fuelType;
      
      
+     
      @ManyToMany(mappedBy="carFuels")
      @JsonIgnore
-	  private List<CarModel> carModel;
+	  private List<Car> carModel;
 
 
+     
+     
+     //getter setter
+     
 	public int getFuelId() {
 		return fuelId;
 	}
@@ -50,12 +54,12 @@ public class CarFuel
 	}
 
 
-	public List<CarModel> getCarModel() {
+	public List<Car> getCarModel() {
 		return carModel;
 	}
 
 
-	public void setCarModel(List<CarModel> carModel) {
+	public void setCarModel(List<Car> carModel) {
 		this.carModel = carModel;
 	}
   
